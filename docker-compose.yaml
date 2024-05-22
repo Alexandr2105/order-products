@@ -1,0 +1,38 @@
+version: '3.5'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    container_name: postgres
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - '5433:5432'
+    networks:
+      - nest-docker-compose-example-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: order_products
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_PASSWORD=mysupersecretpassword
+
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    volumes:
+      - ./src:/app/src
+    networks:
+      - nest-docker-compose-example-network
+
+networks:
+  nest-docker-compose-example-network:
+    driver: bridge
+
+#Для запуска используем docker-compose up
