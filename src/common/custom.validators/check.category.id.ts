@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { ValidatorConstraint, ValidatorConstraintInterface } from "class-validator";
-import { CategoryQueryRepository } from "src/feature/queryRepository/categorty.query.repository";
+import { CategoryQueryRepository } from "src/feature/category/repositories/categorty.query.repository";
 
 @ValidatorConstraint()
 @Injectable()

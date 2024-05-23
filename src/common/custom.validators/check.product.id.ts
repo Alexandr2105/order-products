@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { ValidatorConstraint, ValidatorConstraintInterface } from "class-validator";
-import { ProductQueryRepository } from "src/feature/queryRepository/product.query.repository";
+import { ProductQueryRepository } from "src/feature/product/repositories/product.query.repository";
 
 @ValidatorConstraint()
 @Injectable()
